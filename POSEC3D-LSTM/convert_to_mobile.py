@@ -1,13 +1,14 @@
 import torch
 import argparse
 import mmcv
+from mmcv import DictAction
 from torch.utils.mobile_optimizer import optimize_for_mobile
 
 from utils.models import modelFromConfig
 
 def parse_args():
     parser = argparse.ArgumentParser("Agurment of convert_to_mobile.py")
-    parser.add_argument('-cfg-path', required=True)
+    parser.add_argument('--cfg-path', required=True)
     
     parser.add_argument(
         '--cfg-options',

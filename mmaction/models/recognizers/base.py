@@ -255,8 +255,6 @@ class BaseRecognizer(nn.Module, metaclass=ABCMeta):
             del kwargs['gradcam']
             return self.forward_gradcam(imgs, **kwargs)
         if return_loss:
-            if label is None:
-                raise ValueError('Label should not be None.')
             if self.blending is not None:
                 imgs, label = self.blending(imgs, label)
             return self.forward_train(imgs, label, **kwargs)
